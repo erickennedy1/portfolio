@@ -11,6 +11,18 @@
 </head>
 <body>
 
+  <!-- CARD DA MÚSICA - Fixo no canto -->
+  <div class="music-card">
+    <div class="music-title">Ouvindo agora</div>
+    <iframe
+      src="https://open.spotify.com/embed/track/6K4t31amVTZDgR3sKmwUJJ?theme=0"
+      width="100%"
+      height="152"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+  </div>
+
   <!-- SEÇÃO HOME - Card Central estilo Carrd -->
   <section id="home" class="section section--active">
     <div class="home-container">
@@ -55,33 +67,21 @@
         </div>
       </div>
 
-      <!-- Card de Música -->
-      <div class="music-card">
-        <div class="music-title">Ouvindo agora</div>
-        <iframe
-          src="https://open.spotify.com/embed/track/6K4t31amVTZDgR3sKmwUJJ?theme=0"
-          width="100%"
-          height="152"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-      </div>
-
     </div>
   </section>
 
   <!-- SEÇÃO PROJETOS -->
   <section id="projects" class="section">
-    <div class="section-container">
+    <!-- Botão voltar fixo -->
+    <button class="back-btn" data-section="home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Voltar
+    </button>
 
-      <!-- Header com botão voltar -->
+    <div class="section-container">
       <header class="section-header">
-        <button class="back-btn" data-section="home">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-          </svg>
-          Voltar
-        </button>
         <h2 class="section-title">Projetos</h2>
         <p class="section-subtitle">Alguns dos meus trabalhos recentes</p>
       </header>
