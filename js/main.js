@@ -1,13 +1,67 @@
 /**
  * MAIN.JS
- * Renderiza projetos e gerencia interações
+ * Navegação entre seções e renderização de projetos
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  setupNavigation();
   renderProjects();
-  setupSmoothScroll();
-  setupAnimations();
 });
+
+/**
+ * Configura navegação entre seções com animação
+ */
+function setupNavigation() {
+  // Botões que navegam para seções
+  const navButtons = document.querySelectorAll('[data-section]');
+
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.section;
+      navigateToSection(targetId);
+    });
+  });
+}
+
+/**
+ * Navega para uma seção específica
+ */
+function navigateToSection(targetId) {
+  const currentSection = document.querySelector('.section--active');
+  const targetSection = document.getElementById(targetId);
+
+  if (!targetSection || currentSection === targetSection) return;
+
+  // Adiciona classe de saída na seção atual
+  currentSection.classList.add('section--leaving');
+  currentSection.classList.remove('section--active');
+
+  // Após a animação de saída, ativa a nova seção
+  setTimeout(() => {
+    currentSection.classList.remove('section--leaving');
+    targetSection.classList.add('section--active');
+
+    // Anima os cards de projeto se estiver entrando na seção de projetos
+    if (targetId === 'projects') {
+      animateProjectCards();
+    }
+  }, 300);
+}
+
+/**
+ * Anima os cards de projeto com delay escalonado
+ */
+function animateProjectCards() {
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach((card, index) => {
+    card.classList.remove('animate-in');
+    card.style.animationDelay = `${index * 0.1}s`;
+
+    setTimeout(() => {
+      card.classList.add('animate-in');
+    }, 50);
+  });
+}
 
 /**
  * Renderiza os cards de projeto na grid
@@ -15,10 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderProjects() {
   const grid = document.getElementById('projectsGrid');
   if (!grid) return;
-  
+
   grid.innerHTML = PROJECTS.map(project => `
     <a href="projeto.html?id=${project.id}" class="project-card">
-      ${project.image 
+      ${project.image
         ? `<img src="${project.image}" alt="${project.title}" class="project-image" onerror="this.outerHTML='<div class=\\'project-image-placeholder\\'>${project.icon}</div>'">`
         : `<div class="project-image-placeholder">${project.icon}</div>`
       }
@@ -39,42 +93,4 @@ function renderProjects() {
       </div>
     </a>
   `).join('');
-}
-
-/**
- * Scroll suave para âncoras
- */
-function setupSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-}
-
-/**
- * Animações de scroll (Intersection Observer)
- */
-function setupAnimations() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-  
-  // Observa os cards de projeto
-  document.querySelectorAll('.project-card').forEach((card, index) => {
-    card.style.animationDelay = `${index * 0.1}s`;
-    observer.observe(card);
-  });
 }
