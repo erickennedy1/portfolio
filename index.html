@@ -19,6 +19,9 @@
       justify-content: center;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: #ffffff;
+
+      /* remove qualquer scrollbar */
+      overflow: hidden;
     }
 
     /* CARD PRINCIPAL */
@@ -67,36 +70,35 @@
     /* CARD DA MÚSICA */
     .music-card {
       position: fixed;
-      top: 24px;
-      right: 24px;
-      width: 300px;
+      top: 20px;
+      right: 20px;
+      width: 240px;
       background: #111113;
-      border-radius: 14px;
-      padding: 16px;
+      border-radius: 12px;
+      padding: 10px;
       box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
     }
 
     .music-title {
-      font-size: 0.85rem;
+      font-size: 0.7rem;
       color: #a1a1aa;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+      text-align: left;
     }
 
-    iframe {
-      border-radius: 12px;
+    .music-card iframe {
+      border: none;
+      border-radius: 10px;
     }
 
     /* MOBILE */
     @media (max-width: 768px) {
-      .music-card {
-        position: static;
-        margin-bottom: 24px;
+      body {
+        overflow: auto;
       }
 
-      body {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 24px;
+      .music-card {
+        display: none;
       }
     }
   </style>
@@ -105,13 +107,11 @@
 
   <!-- CARD DA MÚSICA -->
   <div class="music-card">
-    <div class="music-title">🎧 Now Playing</div>
+    <div class="music-title">🎧 Listening</div>
     <iframe
-      style="border-radius:12px"
-      src="https://open.spotify.com/embed/track/6K4t31amVTZDgR3sKmwUJJ?utm_source=generator"
+      src="https://open.spotify.com/embed/track/6K4t31amVTZDgR3sKmwUJJ?theme=0"
       width="100%"
-      height="152"
-      frameborder="0"
+      height="80"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy">
     </iframe>
