@@ -4,42 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Seu Nome — Desenvolvedor</title>
+
   <style>
-    body {
-      background: #0e0e10;
-      color: #ffffff;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      margin: 0;
-      padding: 0;
+    * {
+      box-sizing: border-box;
     }
 
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 80px 24px;
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0b0b0d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #ffffff;
+    }
+
+    .card {
+      background: #111113;
+      border-radius: 16px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 8px;
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 600;
     }
 
     .subtitle {
+      margin-top: 8px;
       color: #a1a1aa;
-      margin-bottom: 24px;
+      font-size: 0.95rem;
     }
 
     .bio {
-      font-size: 1.05rem;
-      margin-bottom: 32px;
+      margin: 24px 0 32px;
+      font-size: 0.95rem;
       line-height: 1.6;
+      color: #d4d4d8;
     }
 
     .links a {
-      margin-right: 16px;
-      text-decoration: none;
+      display: inline-block;
+      margin: 0 10px;
       color: #5865f2;
+      text-decoration: none;
       font-weight: 500;
+      font-size: 0.95rem;
     }
 
     .links a:hover {
@@ -48,7 +65,7 @@
   </style>
 </head>
 <body>
-  <main class="container">
+  <div class="card">
     <h1>Seu Nome</h1>
     <p class="subtitle">Desenvolvedor • Gaming • Comunidade</p>
 
@@ -61,6 +78,6 @@
       <a href="https://linkedin.com/in/seuuser" target="_blank">LinkedIn</a>
       <a href="https://discord.gg/seulink" target="_blank">Discord</a>
     </div>
-  </main>
+  </div>
 </body>
 </html>
