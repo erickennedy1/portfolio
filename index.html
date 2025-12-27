@@ -1,222 +1,102 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Eric Kennedy — Desenvolvedor</title>
+/**
+ * DADOS DOS PROJETOS
+ * ==================
+ * Edite este arquivo para adicionar/remover projetos.
+ * 
+ * Estrutura de cada projeto:
+ * - id: identificador único (usado na URL da página)
+ * - title: nome do projeto
+ * - description: descrição curta (exibida no card)
+ * - icon: emoji do projeto
+ * - image: caminho para imagem de capa (ou null para placeholder)
+ * - tags: array de tecnologias usadas
+ * - github: link do repositório
+ * - demo: link da demo (opcional)
+ * - details: objeto com informações da página individual
+ */
 
-  <style>
-    * {
-      box-sizing: border-box;
+const PROJECTS = [
+  {
+    id: "mini-game-platformer",
+    title: "Mini Game Platformer",
+    description: "Jogo 2D criado em Unity focado em mecânicas simples e polish visual. Controles responsivos e level design intuitivo.",
+    icon: "🎮",
+    image: "assets/images/projects/platformer.png", // Coloque sua imagem aqui
+    tags: ["Unity", "C#", "2D"],
+    github: "https://github.com/erickennedy/mini-game-platformer",
+    demo: null,
+    details: {
+      fullDescription: `
+        Um platformer 2D desenvolvido em Unity com foco em gameplay fluida e visual clean.
+        
+        O projeto nasceu do desejo de criar algo simples mas polido, aplicando conceitos de
+        game feel e juice para tornar cada interação satisfatória.
+      `,
+      features: [
+        "Sistema de movimentação responsivo com coyote time",
+        "Animações suaves com transições state machine",
+        "Efeitos de partículas para feedback visual",
+        "Level design progressivo com curva de dificuldade",
+        "Sistema de checkpoints e respawn"
+      ],
+      images: [
+        // Adicione paths das screenshots aqui
+        // "assets/images/projects/platformer/screenshot1.png",
+        // "assets/images/projects/platformer/screenshot2.png",
+      ]
     }
-
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #0b0b0d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #ffffff;
-      overflow: hidden;
+  },
+  {
+    id: "api-full-stack",
+    title: "API Full Stack",
+    description: "API REST completa com autenticação JWT, banco de dados PostgreSQL e dashboard web para gerenciamento.",
+    icon: "⚡",
+    image: "assets/images/projects/api.png",
+    tags: ["Node.js", "React", "PostgreSQL", "JWT"],
+    github: "https://github.com/erickennedy/api-full-stack",
+    demo: null,
+    details: {
+      fullDescription: `
+        Uma API REST robusta construída com Node.js e Express, com frontend React para
+        administração. Implementa autenticação segura, validação de dados e boas práticas
+        de desenvolvimento.
+      `,
+      features: [
+        "Autenticação JWT com refresh tokens",
+        "CRUD completo com validação",
+        "Dashboard admin em React",
+        "Documentação Swagger automática",
+        "Testes unitários e de integração",
+        "Deploy containerizado com Docker"
+      ],
+      images: []
     }
-
-    /* CARD PRINCIPAL */
-    .card {
-      background: #111113;
-      border-radius: 16px;
-      padding: 40px;
-      max-width: 460px;
-      width: 100%;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-      overflow-y: auto;
-      max-height: 85vh;
+  },
+  {
+    id: "shorts-ia",
+    title: "Shorts com IA",
+    description: "Pipeline automatizado para criação de vídeos curtos usando IA. Gera roteiros, áudio e edição automática.",
+    icon: "🤖",
+    image: "assets/images/projects/shorts.png",
+    tags: ["Python", "OpenAI", "FFmpeg", "Automation"],
+    github: "https://github.com/erickennedy/shorts-ia",
+    demo: null,
+    details: {
+      fullDescription: `
+        Sistema completo de automação para criação de shorts/reels usando inteligência artificial.
+        Desde a geração do roteiro até a exportação do vídeo final, tudo automatizado.
+      `,
+      features: [
+        "Geração de roteiros com GPT",
+        "Text-to-speech com vozes naturais",
+        "Busca automática de imagens/vídeos de stock",
+        "Edição automática com FFmpeg",
+        "Legendas sincronizadas",
+        "Export otimizado para cada plataforma"
+      ],
+      images: []
     }
-
-    h1 {
-      margin: 0;
-      font-size: 2.1rem;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .subtitle {
-      margin-top: 8px;
-      color: #a1a1aa;
-      font-size: 0.95rem;
-      text-align: center;
-    }
-
-    .bio {
-      margin: 24px 0 32px;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #d4d4d8;
-      text-align: center;
-    }
-
-    section {
-      margin-top: 32px;
-    }
-
-    section h2 {
-      font-size: 0.9rem;
-      color: #a1a1aa;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* STACK */
-    .stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .badge {
-      padding: 6px 12px;
-      font-size: 0.75rem;
-      border-radius: 999px;
-      background: #1c1c1f;
-      color: #d4d4d8;
-    }
-
-    /* PROJETOS */
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .project {
-      padding: 14px;
-      background: #1a1a1d;
-      border-radius: 12px;
-      transition: transform 0.2s ease, background 0.2s ease;
-      cursor: pointer;
-    }
-
-    .project:hover {
-      transform: translateY(-2px);
-      background: #202024;
-    }
-
-    .project-title {
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .project-desc {
-      font-size: 0.75rem;
-      color: #a1a1aa;
-      line-height: 1.4;
-    }
-
-    /* CARD DA MÚSICA */
-    .music-card {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 300px;
-      background: #111113;
-      border-radius: 16px;
-      padding: 14px;
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
-    }
-
-    .music-title {
-      font-size: 0.75rem;
-      color: #a1a1aa;
-      margin-bottom: 8px;
-    }
-
-    .music-card iframe {
-      border: none;
-      border-radius: 12px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      body {
-        overflow: auto;
-      }
-
-      .music-card {
-        display: none;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- CARD DA MÚSICA -->
-  <div class="music-card">
-    <div class="music-title">🎧 Listening</div>
-    <iframe
-      src="https://open.spotify.com/embed/track/6K4t31amVTZDgR3sKmwUJJ?theme=0"
-      width="100%"
-      height="152"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
-  </div>
-
-  <!-- CARD PRINCIPAL -->
-  <div class="card">
-    <h1>Eric Kennedy</h1>
-    <p class="subtitle">Desenvolvedor Full Stack & Jogos</p>
-
-    <p class="bio">
-      Desenvolvedor full stack apaixonado por programação e jogos.
-      Crio mini-jogos e aplicações completas, sempre buscando unir
-      lógica, criatividade e boas práticas.
-    </p>
-
-    <!-- STACK -->
-    <section>
-      <h2>Stack</h2>
-      <div class="stack">
-        <span class="badge">JavaScript</span>
-        <span class="badge">TypeScript</span>
-        <span class="badge">Node.js</span>
-        <span class="badge">React</span>
-        <span class="badge">HTML</span>
-        <span class="badge">CSS</span>
-        <span class="badge">Unity</span>
-        <span class="badge">C#</span>
-      </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <section>
-      <h2>Projetos</h2>
-      <div class="projects">
-        <div class="project">
-          <div class="project-title">Mini Game Platformer</div>
-          <div class="project-desc">
-            Jogo 2D criado em Unity focado em mecânicas simples e polish visual.
-          </div>
-        </div>
-
-        <div class="project">
-          <div class="project-title">API Full Stack</div>
-          <div class="project-desc">
-            API REST com autenticação, banco de dados e dashboard web.
-          </div>
-        </div>
-
-        <div class="project">
-          <div class="project-title">Shorts com IA</div>
-          <div class="project-desc">
-            Pipeline automatizado para criação de vídeos curtos usando IA.
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-</body>
-</html>
+  }
+  
+  // Adicione mais projetos aqui seguindo a mesma estrutura
+];
