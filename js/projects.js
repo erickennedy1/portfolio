@@ -107,6 +107,74 @@ const PROJECTS = [
         "assets/images/projects/dev-wrapped/screenshot-3.jpeg"
       ]
     }
+  },
+  {
+    id: "azuliaverso",
+    title: "Azulia Verso",
+    description: "Mundo 3D submarino desenvolvido em Unity para a plataforma Spatial. Ambiente imersivo com visual scripting e shaders customizados.",
+    icon: "🌊",
+    image: "assets/images/projects/azuliaverso/cover.jpg",
+    tags: ["Unity", "C#", "ShaderLab", "Spatial"],
+    github: "https://github.com/erickennedy1/azuliaverso",
+    demo: null,
+    details: {
+      fullDescription: `
+        Azulia Verso é um ambiente 3D submarino desenvolvido em Unity para a plataforma Spatial.
+        O projeto cria um mundo imersivo com temática oceânica, utilizando visual scripting
+        para interações e shaders customizados para efeitos visuais subaquáticos.
+
+        Desenvolvido com base no Spatial Unity SDK, o ambiente permite que múltiplos
+        usuários explorem o cenário juntos em tempo real.
+      `,
+      features: [
+        "Ambiente 3D submarino imersivo",
+        "Desenvolvido para plataforma Spatial (multiplayer)",
+        "Visual scripting para interações",
+        "Shaders customizados (ShaderLab/HLSL)",
+        "Sistema de diálogos e NPCs",
+        "Cenário detalhado com fauna e flora marinha"
+      ],
+      images: [
+        "assets/images/projects/azuliaverso/screenshot-1.jpg",
+        "assets/images/projects/azuliaverso/screenshot-2.jpg",
+        "assets/images/projects/azuliaverso/screenshot-3.jpg"
+      ]
+    }
+  },
+  {
+    id: "familia-folhas",
+    title: "Família Folhas",
+    description: "Mundo 3D estilizado desenvolvido em Unity para a plataforma Spatial. Ambiente com visual low-poly e shaders customizados.",
+    icon: "🌳",
+    image: "assets/images/projects/familia-folhas/cover.jpg",
+    tags: ["Unity", "C#", "ShaderLab", "Spatial"],
+    github: "https://github.com/erickennedy1/amo-vacinas",
+    demo: null,
+    details: {
+      fullDescription: `
+        Família Folhas é um ambiente 3D estilizado desenvolvido em Unity para a plataforma Spatial.
+        O projeto apresenta um mundo com estética low-poly, utilizando shaders customizados
+        para criar uma atmosfera única e acolhedora.
+
+        Desenvolvido com o Spatial Unity SDK, o ambiente permite que múltiplos
+        usuários explorem o cenário juntos em tempo real, com elementos interativos
+        e visuais detalhados.
+      `,
+      features: [
+        "Ambiente 3D estilizado com visual low-poly",
+        "Desenvolvido para plataforma Spatial (multiplayer)",
+        "Shaders customizados (ShaderLab/HLSL/GLSL)",
+        "Cenário detalhado com vegetação e estruturas",
+        "Experiência multiplayer em tempo real"
+      ],
+      images: [
+        "assets/images/projects/familia-folhas/screenshot-1.jpg",
+        "assets/images/projects/familia-folhas/screenshot-2.jpg",
+        "assets/images/projects/familia-folhas/screenshot-3.jpg",
+        "assets/images/projects/familia-folhas/screenshot-4.jpg",
+        "assets/images/projects/familia-folhas/screenshot-5.jpg"
+      ]
+    }
   }
 
   // Adicione mais projetos aqui seguindo a mesma estrutura
