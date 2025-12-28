@@ -54,7 +54,7 @@ const PROJECTS = [
     image: "assets/images/projects/mk-beauty/cover.png",
     tags: ["Vue 3", "MediaPipe", "Tailwind", "Vite"],
     github: null,
-    demo: null,
+    demo: "https://metakosmoslab.com/aneethun/welcome",
     details: {
       fullDescription: `
         mK Beauty é um provador virtual de cores de cabelo desenvolvido para a indústria

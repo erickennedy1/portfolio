@@ -232,8 +232,7 @@ body {
 }
 
 .project-image-wrapper--vertical {
-  position: sticky;
-  top: 24px;
+  /* Imagem fixa no topo, não acompanha scroll */
 }
 
 .project-info {
