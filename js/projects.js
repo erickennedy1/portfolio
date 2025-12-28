@@ -54,17 +54,15 @@ const PROJECTS = [
     image: "assets/images/projects/mk-beauty/cover.png",
     tags: ["Vue 3", "MediaPipe", "Tailwind", "Vite"],
     github: null,
-    demo: "https://metakosmoslab.com/aneethun/welcome",
+    demo: "https://metakosmoslab.com/aneethun/",
     details: {
       fullDescription: `
-        mK Beauty é um provador virtual de cores de cabelo desenvolvido para a indústria
-        de cosméticos profissionais. A aplicação utiliza inteligência artificial para
-        detectar e segmentar o cabelo do usuário em tempo real, permitindo visualizar
-        diferentes colorações antes de aplicá-las.
+        mK Beauty é um provador virtual de cores de cabelo desenvolvido para a Metakosmos.
+        A aplicação utiliza inteligência artificial para detectar e segmentar o cabelo
+        do usuário em tempo real, permitindo visualizar diferentes colorações antes de aplicá-las.
 
-        Projeto desenvolvido para empresa do setor de beleza, com código proprietário.
-        A solução combina processamento de imagem avançado com uma interface intuitiva
-        para proporcionar uma experiência imersiva ao usuário.
+        Projeto desenvolvido com código proprietário, combinando processamento de imagem
+        avançado com uma interface intuitiva para proporcionar uma experiência imersiva ao usuário.
       `,
       features: [
         "Segmentação de cabelo em tempo real com MediaPipe",
@@ -76,6 +74,38 @@ const PROJECTS = [
         "Layout responsivo mobile/desktop"
       ],
       images: []
+    }
+  },
+  {
+    id: "dev-wrapped",
+    title: "Dev Wrapped",
+    description: "Retrospectiva anual para desenvolvedores. Conecta com GitHub, Linear e Google para gerar um resumo do seu ano como dev.",
+    icon: "📊",
+    image: "assets/images/projects/dev-wrapped/cover.jpeg",
+    tags: ["Vue 3", "Vite", "Node.js", "APIs"],
+    github: "https://github.com/erickennedy1/dev-wrapped",
+    demo: null,
+    details: {
+      fullDescription: `
+        Dev Wrapped é uma aplicação inspirada no Spotify Wrapped, mas voltada para desenvolvedores.
+        Conecte suas contas do GitHub, Linear e Google para gerar uma retrospectiva completa
+        do seu ano como desenvolvedor.
+
+        A aplicação coleta dados de commits, PRs, issues, emails e eventos para criar
+        um resumo visual e interativo das suas conquistas e atividades ao longo do ano.
+      `,
+      features: [
+        "Integração com GitHub (commits, PRs, issues)",
+        "Integração com Linear (issues criadas e completadas)",
+        "Integração com Google (emails e eventos)",
+        "Geração de retrospectiva visual",
+        "Interface clean e intuitiva"
+      ],
+      images: [
+        "assets/images/projects/dev-wrapped/screenshot-1.jpeg",
+        "assets/images/projects/dev-wrapped/screenshot-2.jpeg",
+        "assets/images/projects/dev-wrapped/screenshot-3.jpeg"
+      ]
     }
   }
 
