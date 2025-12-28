@@ -45,6 +45,38 @@ const PROJECTS = [
         "assets/images/projects/dark-ascent/screenshot-1.png"
       ]
     }
+  },
+  {
+    id: "mk-beauty",
+    title: "mK Beauty",
+    description: "Provador virtual de cores de cabelo com IA. Aplicação web que usa segmentação de imagem para simular colorações em tempo real.",
+    icon: "💇",
+    image: "assets/images/projects/mk-beauty/cover.png",
+    tags: ["Vue 3", "MediaPipe", "Tailwind", "Vite"],
+    github: null,
+    demo: null,
+    details: {
+      fullDescription: `
+        mK Beauty é um provador virtual de cores de cabelo desenvolvido para a indústria
+        de cosméticos profissionais. A aplicação utiliza inteligência artificial para
+        detectar e segmentar o cabelo do usuário em tempo real, permitindo visualizar
+        diferentes colorações antes de aplicá-las.
+
+        Projeto desenvolvido para empresa do setor de beleza, com código proprietário.
+        A solução combina processamento de imagem avançado com uma interface intuitiva
+        para proporcionar uma experiência imersiva ao usuário.
+      `,
+      features: [
+        "Segmentação de cabelo em tempo real com MediaPipe",
+        "Aplicação de cores com ajuste de intensidade e brilho",
+        "Modo comparação split-view (antes/depois)",
+        "Catálogo de cores por categorias (naturais, fantasia, etc)",
+        "Sistema de favoritos",
+        "Captura e download de fotos",
+        "Layout responsivo mobile/desktop"
+      ],
+      images: []
+    }
   }
 
   // Adicione mais projetos aqui seguindo a mesma estrutura
