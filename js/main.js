@@ -6,7 +6,29 @@
 document.addEventListener('DOMContentLoaded', () => {
   setupNavigation();
   renderProjects();
+  checkHashNavigation();
 });
+
+/**
+ * Verifica se há hash na URL e navega para a seção correspondente
+ */
+function checkHashNavigation() {
+  const hash = window.location.hash.slice(1); // Remove o #
+  if (hash && document.getElementById(hash)) {
+    // Navega diretamente sem animação de saída
+    const currentSection = document.querySelector('.section--active');
+    const targetSection = document.getElementById(hash);
+
+    if (currentSection && targetSection && currentSection !== targetSection) {
+      currentSection.classList.remove('section--active');
+      targetSection.classList.add('section--active');
+
+      if (hash === 'projects') {
+        animateProjectCards();
+      }
+    }
+  }
+}
 
 /**
  * Configura navegação entre seções com animação

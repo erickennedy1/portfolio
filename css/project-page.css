@@ -47,6 +47,28 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+
+  /* Scrollbar minimalista - Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-light) transparent;
+}
+
+/* Scrollbar minimalista - Chrome, Safari, Opera */
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light);
 }
 
 /* ================================
