@@ -201,7 +201,6 @@ const PROJECTS = [
         "Visualização de joias (colares, brincos, anéis)",
         "Prova de bonés e chapéus",
         "Visualização de tênis nos pés",
-        "Suporte a múltiplas marcas (Animale, Maria Filó, Renner, C&A)",
         "Integração com Replicate API para geração de imagens",
         "Detecção facial com Face-API.js"
       ],
